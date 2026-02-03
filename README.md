@@ -1,1 +1,139 @@
-# for-prasanthi1
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For Prasanthi 💙</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #e0f2ff, #ffd6e8);
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+    }
+
+    .card {
+      background: white;
+      padding: 32px;
+      border-radius: 22px;
+      text-align: center;
+      width: 340px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+      z-index: 2;
+    }
+
+    h1 {
+      margin-bottom: 6px;
+      color: #3a8dde;
+    }
+
+    h2 {
+      margin-top: 0;
+      font-weight: normal;
+      color: #555;
+      font-size: 16px;
+    }
+
+    p {
+      font-size: 16px;
+      min-height: 48px;
+      color: #333;
+    }
+
+    button {
+      margin-top: 18px;
+      padding: 11px 22px;
+      border: none;
+      border-radius: 25px;
+      background: #3a8dde;
+      color: white;
+      font-size: 15px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.07);
+      box-shadow: 0 6px 18px rgba(58,141,222,0.45);
+    }
+
+    .float {
+      position: absolute;
+      font-size: 26px;
+      animation: floatUp 4s linear forwards;
+      pointer-events: none;
+    }
+
+    @keyframes floatUp {
+      from {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-260px) scale(1.4);
+        opacity: 0;
+      }
+    }
+
+    /* Watermark */
+    .watermark {
+      position: fixed;
+      bottom: 12px;
+      right: 16px;
+      font-size: 13px;
+      color: rgba(58, 141, 222, 0.5);
+      font-style: italic;
+      z-index: 1;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Hey Prasanthi 💙</h1>
+    <h2>This little space is just for you</h2>
+    <p id="message">Whenever the world feels dull, tap below.</p>
+    <button onclick="makeHappy()">Tap for a smile 😊</button>
+  </div>
+
+  <div class="watermark">From Your Prabha</div>
+
+  <script>
+    const messages = [
+      "Prasanthi, your calm energy is really beautiful 🌸",
+      "Even on quiet days, you matter deeply 💙",
+      "Your presence feels peaceful, like a soft blue sky ☁️",
+      "It’s okay to slow down — you’re doing enough 🌿",
+      "Someone made this hoping you’d smile today 🌈"
+    ];
+
+    function makeHappy() {
+      const msg = messages[Math.floor(Math.random() * messages.length)];
+      document.getElementById("message").innerText = msg;
+
+      for (let i = 0; i < 6; i++) {
+        setTimeout(createFloat, i * 150);
+      }
+    }
+
+    function createFloat() {
+      const symbols = ["🌸", "🌼", "💙", "💙", "🌸"];
+      const element = document.createElement("div");
+      element.className = "float";
+      element.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+
+      element.style.left = Math.random() * 100 + "vw";
+      element.style.bottom = "-20px";
+      element.style.fontSize = Math.random() * 12 + 22 + "px";
+
+      document.body.appendChild(element);
+      setTimeout(() => element.remove(), 4000);
+    }
+  </script>
+
+</body>
+</html>
